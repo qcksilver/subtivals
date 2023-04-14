@@ -23,8 +23,6 @@ jobs:
         cache-key-prefix: 'install-qt-action'
         setup-python: 'true'
         set-env: 'true'
-    - name: install qt tools
-      run: sudu /Users/runner/hostedtoolcache/Python/3.11.3/x64/bin/python3 -m aqt install-tool mac desktop tools_ifw tools_qtcreator qt.tools.qtcreator tools_cmake --outputdir /Users/runner/work/subtivals/Qt
     - name: configure
       run: ./configure
     - name: make
