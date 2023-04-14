@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - name: Install Qt
-      uses: jurplel/install-qt-action@v3
+      uses: sudo jurplel/install-qt-action@v3
       with:
         version: '5.15.2'
         target: 'desktop'
@@ -21,11 +21,8 @@ jobs:
         cache: 'false'
         cache-key-prefix: 'install-qt-action'
         setup-python: 'true'
-        tools: 'tools_ifw tools_qtcreator,qt.tools.qtcreator,tools_generic,tools_cmake'
+        tools: 'tools_ifw,tools_qtcreator,qt.tools.qtcreator,tools_cmake'
         set-env: 'true'
-        tools-only: 'false'
-        aqtversion: '==2.1.*'
-        py7zrversion: '==0.19.*'
     - uses: actions/checkout@v3
     - name: configure
       run: ./configure
