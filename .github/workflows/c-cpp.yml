@@ -1,0 +1,38 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: '5.15.2'
+        target: 'desktop'
+        install-deps: 'true'
+        cache: 'false'
+        cache-key-prefix: 'install-qt-action'
+        setup-python: 'false'
+        tools: 'tools_ifw tools_qtcreator,qt.tools.qtcreator,tools_generic,tools_cmake'
+        set-env: 'true'
+        tools-only: 'false'
+        aqtversion: '==2.1.*'
+        py7zrversion: '==0.19.*'
+        extra: '--external 7z'
+    - uses: actions/checkout@v3
+    - name: configure
+      run: ./configure
+    - name: make
+      run: make
+    - name: make check
+      run: make check
+    - name: make distcheck
+      run: make distcheck
