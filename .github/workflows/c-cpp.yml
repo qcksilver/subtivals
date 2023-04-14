@@ -13,6 +13,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: '5.15.2'
+        target: 'desktop'
+        install-deps: 'true'
+        cache: 'false'
+        cache-key-prefix: 'install-qt-action'
+        setup-python: 'true'
+        tools: 'tools_ifw,tools_qtcreator,qt.tools.qtcreator,tools_cmake'
+        set-env: 'true'
     - name: configure
       run: ./configure
     - name: make
