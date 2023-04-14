@@ -13,20 +13,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: configure
-      run: ./configure
     - name: Install Qt
-      uses: jurplel/install-qt-action@v3
-      with:
-        version: '5.15.2'
-        target: 'desktop'
-        install-deps: 'true'
-        cache: 'false'
-        cache-key-prefix: 'install-qt-action'
-        setup-python: 'true'
-        set-env: 'true'
-    - name: make
-      run: make
+      run: brew install qt
+          brew install qt@5
+    - name: buildmac
+      run: buildmac.sh
     - name: make check
       run: make check
     - name: make distcheck
