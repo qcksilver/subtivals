@@ -17,9 +17,8 @@ jobs:
       run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     - run: (echo; echo 'eval "$(/usr/local/bin/brew shellenv)"') >> /Users/runner/.bash_profile
     - run: eval "$(/usr/local/bin/brew shellenv)"
-    - name: Install Qt
-      run: brew install qt
-          brew install qt@5
+    - name: Install Qt5
+      run: brew install qt@5
     - name: buildmac
       run: buildmac.sh
     - name: make check
