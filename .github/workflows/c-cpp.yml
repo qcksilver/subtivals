@@ -20,7 +20,7 @@ jobs:
     - name: Install Qt5
       run: brew install qt@5
     - name: buildmac
-      run: subtivals/buildmac.sh
+      run: /subtivals/buildmac.sh
     - name: make check
       run: make check
     - name: make distcheck
