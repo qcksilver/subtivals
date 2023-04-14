@@ -13,6 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: configure
+      run: ./configure
     - name: Install Qt
       uses: jurplel/install-qt-action@v3
       with:
@@ -23,8 +25,6 @@ jobs:
         cache-key-prefix: 'install-qt-action'
         setup-python: 'true'
         set-env: 'true'
-    - name: configure
-      run: ./configure
     - name: make
       run: make
     - name: make check
