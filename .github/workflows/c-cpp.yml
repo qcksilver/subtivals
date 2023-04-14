@@ -20,7 +20,7 @@ jobs:
         install-deps: 'true'
         cache: 'false'
         cache-key-prefix: 'install-qt-action'
-        setup-python: 'false'
+        setup-python: 'true'
         tools: 'tools_ifw tools_qtcreator,qt.tools.qtcreator,tools_generic,tools_cmake'
         set-env: 'true'
         tools-only: 'false'
