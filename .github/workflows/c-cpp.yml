@@ -19,8 +19,10 @@ jobs:
     - run: eval "$(/usr/local/bin/brew shellenv)"
     - name: Install Qt5
       run: brew install qt@5
+    - run: export LDFLAGS="-L/usr/local/opt/qt@5/lib"
+    - run: export CPPFLAGS="-I/usr/local/opt/qt@5/include"
     - name: buildmac
-      run: /subtivals/buildmac.sh
+      run: /workspace/buildmac.sh
     - name: make check
       run: make check
     - name: make distcheck
